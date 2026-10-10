@@ -1,0 +1,28 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packaging/ubuntu/README.md
+/:
+  en: c8b88b4aa7e251a1
+  zh: 1e86bb32d3188cfa
+/ubuntu-packaging:
+  en: dfdaef558f4faca2
+  zh: 34e7f994d534d1da
+/ubuntu-packaging/summary:
+  en: 183a4cdb31e8be66
+  zh: 4130461488ee1561
+/ubuntu-packaging/table-of-contents:
+  en: 75976404b76ef3f4
+  zh: c217d3b8a3ca8050
+/ubuntu-packaging/build:
+  en: f1f986214b296c25
+  zh: 00cb32e38f38359c
+/ubuntu-packaging/install:
+  en: 1ebf264b66e5449c
+  zh: e187567ca5669a2f
+/ubuntu-packaging/maintenance:
+  en: 800452c83f34d0b7
+  zh: 28db6916abc8006f
+/ubuntu-packaging/dev-note:
+  en: 495dbf683cc11ee1
+  zh: a58a84c56079bd1f

@@ -60,8 +60,7 @@ export function createElectronBuilderConfig(
   const unsigned = env.DSH_DESKTOP_UNSIGNED === '1'
   const packagesMacOS = targetPlatform === 'darwin' || (targetPlatform === undefined && hostPlatform === 'darwin')
   const packagesWindows = resolvedPlatform === 'win32'
-  if (resolvedPlatform === 'linux' && !unsigned) throw new Error('desktop package: Linux requires --unsigned and uses manual updates')
-  const policy = (packagesMacOS || resolvedPlatform === 'linux') && unsigned ? undefined : resolveDesktopPolicyEnvironment(env)
+  const policy = packagesMacOS && unsigned ? undefined : resolveDesktopPolicyEnvironment(env)
   if (resolvedPlatform === 'win32') installWindowsDirectoryInstaller()
   const macOSSigning = packagesMacOS && !unsigned ? resolveMacOSSigningEnvironment(env) : undefined
   if (packagesMacOS && !unsigned) resolveMacOSNotarizationEnvironment(env)
@@ -233,10 +232,7 @@ export function createElectronBuilderConfig(
     },
     linux: {
       category: 'Development',
-      executableName: 'deepseek-harness',
-      icon: fileURLToPath(new URL('../resources/icon-windows.png', import.meta.url)),
-      target: ['deb'],
-      maintainer: 'DeepSeek Harness contributors',
+      target: ['AppImage'],
     },
     nsis: {
       installerSidebar: join(buildPaths.root, 'installer-ui', 'uninstaller-sidebar.bmp'),

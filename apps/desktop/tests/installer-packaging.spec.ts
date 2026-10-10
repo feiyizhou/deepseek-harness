@@ -100,16 +100,3 @@ describe('installer preparation preserves application dependencies', () => {
     for (const name of referenced) expect(packaged.has(`lib/${name}`)).toBe(true)
   })
 })
-
-
-it('packages a Linux deb with manual updates and no mandatory update policy', async () => {
-  const { createElectronBuilderConfig } = await import('../scripts/electron-builder-config.mjs')
-  const env = { DSH_DESKTOP_APP_ID: 'com.deepseek.harness', DSH_DESKTOP_UNSIGNED: '1' }
-  const config = createElectronBuilderConfig(env, 'linux', 'x64')
-  expect(config.linux).toMatchObject({ target: ['deb'], executableName: 'deepseek-harness' })
-  expect(config.publish).toBeNull()
-  expect(config.extraMetadata).not.toHaveProperty('dshMandatoryUpdatePolicy')
-  expect(config.directories.output).toContain('linux-x64')
-  expect(() => createElectronBuilderConfig({ ...env, DSH_DESKTOP_UNSIGNED: '0' }, 'linux', 'x64'))
-    .toThrow(/requires --unsigned/u)
-})

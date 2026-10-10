@@ -44,10 +44,6 @@ export interface DesktopElectronBuilderConfig {
       readonly signingHashAlgorithms: readonly string[]
     }
   }
-  readonly linux: {
-    readonly executableName: string
-    readonly target: readonly string[]
-  }
   readonly nsis: {
     readonly include: string
     readonly oneClick: false
