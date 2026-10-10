@@ -42,17 +42,20 @@
   en: 4cd8a8da6977928d
   zh: 9f624855a2edac37
 /deepseek-harness-desktop/package/release-versions:
-  en: d938302f92fc3a1a
-  zh: 29df50bc8791baa7
+  en: 12a6f58af871fb1c
+  zh: 59957b625d0d7298
 /deepseek-harness-desktop/package/local-macos-dmg-without-release-signing:
   en: 57869a5e3885f843
   zh: 7cfc01b2dcbebd78
+/deepseek-harness-desktop/package/local-ubuntu-x64-package:
+  en: ada41a06f3d171e3
+  zh: fd6fa92cc96d2466
 /deepseek-harness-desktop/package/local-official-bundles-from-a-loopback-registry:
   en: 5f05072ec82cc62d
   zh: a3d63b58d1ef2db7
 /deepseek-harness-desktop/package/runtime-file-selection:
-  en: e7c1eb8e78fe46e3
-  zh: b7ea497dd75be524
+  en: 10049bb3410ad912
+  zh: b90d562643f11098
 /deepseek-harness-desktop/package/upload-updates:
   en: f48baa680e841b0d
   zh: 25ded1aeaac6dad1
@@ -75,8 +78,8 @@
   en: 2e57457c44c85b5f
   zh: 5b8510a3dc4c6c9d
 /deepseek-harness-desktop/updates/mandatory-update-policy:
-  en: 54596bef0706d305
-  zh: 48737302dcf3c939
+  en: 0e00591f1e77b7fc
+  zh: bc32c7929481f1ef
 /deepseek-harness-desktop/updates/local-updater-qualification:
   en: bc50fd8a4d96c227
   zh: fb0a6ce80c31cda6

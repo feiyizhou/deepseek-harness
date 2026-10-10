@@ -53,6 +53,24 @@ it('resolves an absolute engine manifest to its unpacked copy', () => {
     .toMatchObject({ path: realpathSync(dirname(join(f.root, 'app.asar.unpacked', 'dsh', f.manifest))) })
 })
 
+it('loads the Office API from disk so optional-engine probes do not use ASAR filesystem results', () => {
+  const f = fixture()
+  const entry = 'node_modules/@deepseek-ai/libreoffice-kit/lib/index.js'
+  for (const base of [f.runtime, join(f.root, 'app.asar.unpacked', 'dsh')]) {
+    mkdirSync(dirname(join(base, entry)), { recursive: true })
+    writeFileSync(join(base, entry), 'module.exports = { filename: __filename }')
+  }
+  expect(f.require(join(f.runtime, entry))).toEqual({ filename: join(f.root, 'app.asar.unpacked', 'dsh', entry) })
+})
+
+it('rejects an Office API missing from the unpacked tree', () => {
+  const f = fixture()
+  const entry = join(f.runtime, 'node_modules/@deepseek-ai/libreoffice-kit/lib/index.js')
+  mkdirSync(dirname(entry), { recursive: true })
+  writeFileSync(entry, 'module.exports = {}')
+  expect(() => { f.require(entry) }).toThrow()
+})
+
 it.each(['exports', 'main'] as const)('refreshes a cached plugin %s while Office resolution stays active', (field) => {
   const f = fixture()
   const packageRoot = join(f.root, 'plugin')
